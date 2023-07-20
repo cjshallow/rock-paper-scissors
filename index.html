@@ -12,35 +12,63 @@ let randomNumberValue = (Math.floor(Math.random() * 3) + 1)
   } 
 }
 
+let playerSelection = prompt('Your move');
+let computerSelection = getComputerChoice();
+
+//make ok for all case! case insensitive//
+
   function playRound(){
       if (playerSelection == 'Rock' && computerSelection == 'Scissors'){
-          return "You Win! Rock beats Scissors."
+          return "Win"
       } else if (playerSelection == 'Rock' && computerSelection == 'Paper'){
-          return "You Lose! Paper beats Rock."
+          return "Lose"
       } else if (playerSelection == 'Rock' && computerSelection == 'Rock'){
-          return "Two rocks, no hard place. It's a draw! Play again."
+          return "Draw"
       } else if (playerSelection == 'Scissors' && computerSelection == 'Rock'){
-          return "You Lose! Rock beats Scissors."
+          return "Lose"
       } else if (playerSelection == 'Scissors' && computerSelection == 'Paper'){
-          return "You Win! Scissors beats Paper."
+          return "Win"
       } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors'){
-          return "Don't run with all of those Scissors! It's a draw! Play again."
+          return "Draw"
       } else if (playerSelection == 'Paper' && computerSelection == 'Rock'){
-          return "You Win! Paper beats Rock."
+          return "Win"
       } else if (playerSelection == 'Paper' && computerSelection == 'Scissors'){
-          return "You Lose! Scissors beats Paper."
+          return "Lose"
       } else if (playerSelection == 'Paper' && computerSelection == 'Paper'){
-          return "Okay, Michael Scott. Lot of paper there. It's a draw! Play again."
+          return "Draw"
       }
   }
 
+//let playerSelection = 'Scissors';
 
-let playerSelection = 'Rock';
-let computerSelection = getComputerChoice();
+let roundResult = playRound();
+
+function game(){
+    prompt('Your move')
+      playRound()
+      console.log(roundResult)
+    prompt('Your move')
+      playRound()
+      console.log(roundResult)
+    prompt('Your move')
+      playRound()
+      console.log(roundResult)
+    prompt('Your move')
+      playRound()
+      console.log(roundResult)
+    prompt('Your move')
+      playRound()
+      console.log(roundResult)
+
+    
+    
+}
 
 
 
 
-console.log(playRound());
+
+
+console.log(game());
 
 </script>
