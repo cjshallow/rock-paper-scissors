@@ -12,12 +12,12 @@ let randomNumberValue = (Math.floor(Math.random() * 3) + 1)
   } 
 }
 
-let playerSelection = prompt('Your move');
+let playerSelection = "Rock";
 let computerSelection = getComputerChoice();
 
 //make ok for all case! case insensitive//
 
-  function playRound(){
+  function playRound(playerSelection, computerSelection){
       if (playerSelection == 'Rock' && computerSelection == 'Scissors'){
           return "Win"
       } else if (playerSelection == 'Rock' && computerSelection == 'Paper'){
@@ -39,36 +39,6 @@ let computerSelection = getComputerChoice();
       }
   }
 
-//let playerSelection = 'Scissors';
-
-let roundResult = playRound();
-
-function game(){
-    prompt('Your move')
-      playRound()
-      console.log(roundResult)
-    prompt('Your move')
-      playRound()
-      console.log(roundResult)
-    prompt('Your move')
-      playRound()
-      console.log(roundResult)
-    prompt('Your move')
-      playRound()
-      console.log(roundResult)
-    prompt('Your move')
-      playRound()
-      console.log(roundResult)
-
-    
-    
-}
-
-
-
-
-
-
-console.log(game());
+  console.log(playRound(playerSelection, computerSelection));
 
 </script>
