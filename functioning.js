@@ -9,40 +9,54 @@ function playRound(playerSelection){
     const random = Math.floor(Math.random() * choices.length);
 
 
-      if (playerSelection == 'rock' && choices[random] == 'Scissors'){
-          result = "Win";
-          playerScore++;
-      } else if (playerSelection == 'rock' && choices[random] == 'Paper'){
-          result = "Lose";
-          compScore++;
-      } else if (playerSelection == 'rock' && choices[random] == 'Rock'){
-          result = "Draw";
-      } else if (playerSelection == 'scissors' && choices[random] == 'Rock'){
-          result = "Lose";
-          compScore++;
-      } else if (playerSelection == 'scissors' && choices[random] == 'Paper'){
-          result = "Win";
-          playerScore++;
-      } else if (playerSelection == 'scissors' && choices[random] == 'Scissors'){
-          result = "Draw";
-      } else if (playerSelection == 'paper' && choices[random] == 'Rock'){
-          result = "Win";
-          playerScore++;
-      } else if (playerSelection == 'paper' && choices[random] == 'Scissors'){
-          result = "Lose";
-          compScore++;
-      } else if (playerSelection == 'paper' && choices[random] == 'Paper'){
-          result = "Draw";
-      }
+      if ((playerSelection == 'Rock' && choices[random] == 'Scissors') || 
+         (playerSelection == 'Scissors' && choices[random] == 'Paper') ||
+         (playerSelection == 'Paper' && choices[random] == 'Rock')) {
+            playerScore++;
+            result = "Score! " + playerSelection + " beats " + choices[random] + ".";
+         
+       } else if (
+          (playerSelection == 'Rock' && choices[random] == 'Paper') ||
+          (playerSelection == 'Paper' && choices[random] == 'Scissors') ||
+          (playerSelection == 'Scissors' && choices[random] == 'Rock')) {
+            compScore++;
+            result = "Miss! " + choices[random] + " beats " + playerSelection + ".";
 
+       } else {
+            result = "Tie! Try again.";
+          } 
+       
+       if (playerScore === 5 || compScore === 5){
+          document.getElementById("Rock").disabled=true;
+          document.getElementById("Paper").disabled=true;
+          document.getElementById("Scissors").disabled=true;
+       }
 
-      const container = document.querySelector('#container');
+       if (playerScore === 5){
+          endGame = "You win the game!";
+       } else if (compScore === 5){
+          endGame = "You lose to the computer!";
+       } else {
+          endGame = "";
+       }
+         
+        document.getElementById('result').innerHTML = result;
+        document.getElementById('score').innerHTML = "Player Score: " + playerScore + " Computer Score: " + compScore;
+        document.getElementById('endGame').innerHTML = endGame;
+
+      //const container = document.querySelector('#container');
       
-      const content = document.createElement('div');
-      content.classList.add('content');
-      content.textContent = result;
+      //const content = document.createElement('div');
+      //content.classList.add('content');
+      //content.textContent = result;
 
-      container.appendChild(content)
+      //container.appendChild(content);
+
+      //const scoring = document.createElement('div');
+      //scoring.classList.add('scoring');
+      //scoring.textContent = "Player Score: " + playerScore + " Computer Score " + compScore + "."
+
+      //container.appendChild(scoring);
 
   }
 
