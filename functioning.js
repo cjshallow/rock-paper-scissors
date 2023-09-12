@@ -1,44 +1,37 @@
-  function getComputerChoice() {
-    let randomNumberValue = (Math.floor(Math.random() * 3) + 1)
-    if (randomNumberValue === 1){
-      return "Rock";
-  } else if (randomNumberValue === 2){
-      return "Paper";
-  } else if (randomNumberValue === 3){
-      return "Scissors";
-  } 
-}
 
-let computerSelection = getComputerChoice();
 let playerScore = 0;
 let compScore = 0;
 
-
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
+    
     let result = "";
-      if (playerSelection == 'rock' && computerSelection == 'Scissors'){
+    const choices = ["Rock", "Paper", "Scissors"]
+    const random = Math.floor(Math.random() * choices.length);
+
+
+      if (playerSelection == 'rock' && choices[random] == 'Scissors'){
           result = "Win";
           playerScore++;
-      } else if (playerSelection == 'rock' && computerSelection == 'Paper'){
+      } else if (playerSelection == 'rock' && choices[random] == 'Paper'){
           result = "Lose";
           compScore++;
-      } else if (playerSelection == 'rock' && computerSelection == 'Rock'){
+      } else if (playerSelection == 'rock' && choices[random] == 'Rock'){
           result = "Draw";
-      } else if (playerSelection == 'scissors' && computerSelection == 'Rock'){
+      } else if (playerSelection == 'scissors' && choices[random] == 'Rock'){
           result = "Lose";
           compScore++;
-      } else if (playerSelection == 'scissors' && computerSelection == 'Paper'){
+      } else if (playerSelection == 'scissors' && choices[random] == 'Paper'){
           result = "Win";
           playerScore++;
-      } else if (playerSelection == 'scissors' && computerSelection == 'Scissors'){
+      } else if (playerSelection == 'scissors' && choices[random] == 'Scissors'){
           result = "Draw";
-      } else if (playerSelection == 'paper' && computerSelection == 'Rock'){
+      } else if (playerSelection == 'paper' && choices[random] == 'Rock'){
           result = "Win";
           playerScore++;
-      } else if (playerSelection == 'paper' && computerSelection == 'Scissors'){
+      } else if (playerSelection == 'paper' && choices[random] == 'Scissors'){
           result = "Lose";
           compScore++;
-      } else if (playerSelection == 'paper' && computerSelection == 'Paper'){
+      } else if (playerSelection == 'paper' && choices[random] == 'Paper'){
           result = "Draw";
       }
 
@@ -57,7 +50,7 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', function (){
-        playRound(button.id, computerSelection)})});
+        playRound(button.id)})});
 
 
 
