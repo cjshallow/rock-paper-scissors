@@ -44,20 +44,6 @@ function playRound(playerSelection){
         document.getElementById('score').innerHTML = "Player Score: " + playerScore + " Computer Score: " + compScore;
         document.getElementById('endGame').innerHTML = endGame;
 
-      //const container = document.querySelector('#container');
-      
-      //const content = document.createElement('div');
-      //content.classList.add('content');
-      //content.textContent = result;
-
-      //container.appendChild(content);
-
-      //const scoring = document.createElement('div');
-      //scoring.classList.add('scoring');
-      //scoring.textContent = "Player Score: " + playerScore + " Computer Score " + compScore + "."
-
-      //container.appendChild(scoring);
-
   }
 
 const buttons = document.querySelectorAll('button');
@@ -65,15 +51,3 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', function (){
         playRound(button.id)})});
-
-
-
-
-
-//if (playerScore > compScore) {
-//    console.log("Player Wins")
-//} else if (playerScore < compScore) {
-//    console.log("Comp Wins")
-//} else if (playerScore = compScore) {
-//    console.log("It's a tie!")/
-//}
